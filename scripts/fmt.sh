@@ -1,2 +1,2 @@
-black etl tests
-isort --profile black etl tests
+black etl tests models
+isort --profile black etl tests models

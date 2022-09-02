@@ -10,6 +10,7 @@ pyarrow = "*"
 matplotlib = "*"
 isort = "*"
 seaborn = "*"
+mlflow = "*"
 
 [dev-packages]
 ipykernel = "*"
