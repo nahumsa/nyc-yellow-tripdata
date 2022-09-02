@@ -31,6 +31,7 @@ jobs:
         run: |
           python -m pip install pip --upgrade pip
           pip install pipenv
+          pipenv install --dev
       
       - name: Running tests
         run: pipenv run tests
