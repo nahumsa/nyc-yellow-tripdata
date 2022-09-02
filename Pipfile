@@ -23,4 +23,4 @@ python_version = "3.8"
 [scripts]
 tests = "pytest --cov=./"
 fmt = "sh scripts/fmt.sh"
-style = "sh scripts/style_check.sh"
+style_check = "sh scripts/style_check.sh"
