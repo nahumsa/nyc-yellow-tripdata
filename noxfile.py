@@ -19,7 +19,7 @@ def check_style(session):
     session.install("black")
     session.install("isort")
     session.run("black", "--check", "--diff", *PROJECT_FOLDERS)
-    session.run("isort", "--profile", "black", *PROJECT_FOLDERS)
+    session.run("isort", "--check", "--profile", "black", *PROJECT_FOLDERS)
     
 @nox.session(name="fmt")
 def apply_style(session):

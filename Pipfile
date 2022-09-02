@@ -8,6 +8,7 @@ pandas = "*"
 scikit-learn = "*"
 pyarrow = "*"
 matplotlib = "*"
+isort = "*"
 
 [dev-packages]
 ipykernel = "*"
@@ -20,4 +21,6 @@ black = "*"
 python_version = "3.8"
 
 [scripts]
-printspam = "python -c \"print('I am a silly example, no one would need to do this')\""
+tests = "pytest --cov=./"
+fmt = "sh scripts/fmt.sh"
+style = "sh scripts/style_check.sh"
