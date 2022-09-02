@@ -33,8 +33,9 @@ jobs:
           pip install pipenv
           pipenv install --dev
       
+      - name: Checking code style
+        run: pipenv run style_check
+      
       - name: Running tests
         run: pipenv run tests
       
-      - name: Checking code style
-        run: pipenv run style_check
