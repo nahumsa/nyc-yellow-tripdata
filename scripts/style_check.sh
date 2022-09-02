@@ -1,2 +1,2 @@
-black --check --diff etl data
-isort --check --diff --profile black etl data
+black --check --diff etl tests
+isort --check --diff --profile black etl tests
