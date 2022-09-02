@@ -11,6 +11,9 @@ matplotlib = "*"
 
 [dev-packages]
 ipykernel = "*"
+pytest = "*"
+nox = "*"
+pytest-cov = "*"
 
 [requires]
 python_version = "3.8"
