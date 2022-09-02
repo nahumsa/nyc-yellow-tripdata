@@ -13,7 +13,6 @@ isort = "*"
 [dev-packages]
 ipykernel = "*"
 pytest = "*"
-nox = "*"
 pytest-cov = "*"
 black = "*"
 
