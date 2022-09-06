@@ -3,3 +3,4 @@ __pycache__/
 .nox/
 .coverage
 mlflow.db
+artifacts/

@@ -43,8 +43,20 @@ def train_and_valid(
     month: int,
     cat_columns: List[str] = ["PULocationID", "DOLocationID"],
     target="duration",
-) -> Pipeline:
-    
+) -> Tuple[Pipeline, List[str]]:
+    """Train and validate the
+
+    Args:
+        year (int): year for training. The validation data will be in the same year.
+        month (int): month for training. The validation data will be in the next month.
+        cat_columns (List[str], optional): categorical columns used. Defaults to ["PULocationID", "DOLocationID"].
+        target (str, optional): target variable. Defaults to "duration".
+
+    Returns:
+        Pipeline: model pipeline with the DictVectorizer + linear regression
+        List[str]: Features used for inference
+    """
+
     features = []
 
     df_train = load_data(year=year, month=month)
