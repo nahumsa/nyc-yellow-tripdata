@@ -18,6 +18,11 @@ mlflow.set_experiment("linear-regression")
 
 
 def pipeline_steps() -> Pipeline:
+    """Generate pipeline for linear regression
+
+    Returns:
+        Pipeline: DictVectorizer + LinearRegression
+    """
     steps = [
         ("dictvectorizer", DictVectorizer()),
         ("linearregression", LinearRegression()),
@@ -26,12 +31,34 @@ def pipeline_steps() -> Pipeline:
     return Pipeline(steps=steps)
 
 
-def process_data(df: pd.DataFrame, cat_columns: List[str]) -> np.array:
+def process_data(df: pd.DataFrame, cat_columns: List[str]) -> Tuple[pd.DataFrame, np.array]:
+    """Process the data for the model using the `etl.preprocess_data` and generate the input
+    for the DictVectorizer
+
+    Args:
+        df (pd.DataFrame): data to process
+        cat_columns (List[str]): categorical columns on the dataset
+
+    Returns:
+        pd.DataFrame: processed dataframe
+        np.array: entry for the dict vectorizer
+    """
     process_df = preprocess_data(df)
     return process_df, process_df[cat_columns].astype(str).to_dict(orient="records")
 
 
 def eval_metrics(actual: List[float], pred: List[float]) -> Tuple[float, float, float]:
+    """Calculate evaluation metrics: rmse, mae, r2.
+
+    Args:
+        actual (List[float]): actual data
+        pred (List[float]): predicted data
+
+    Returns:
+        float: root mean squared error
+        float: mean absolute error
+        float: r2
+    """
     rmse = np.sqrt(mean_squared_error(actual, pred))
     mae = mean_absolute_error(actual, pred)
     r2 = r2_score(actual, pred)
