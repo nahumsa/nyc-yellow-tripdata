@@ -2,13 +2,28 @@
 
 In this project, the goal is to predict the time based on the yellow taxi pickup and dropoff location, and other additional features.
 
+# How to run the code
+
+## Folder structure
+
+In this project, there are the following folders:
+
+- [etl](https://github.com/nahumsa/nyc-yellow-tripdata/tree/main/etl): Which is responsible for data preprocessing and loading.
+- [data](https://github.com/nahumsa/nyc-yellow-tripdata/tree/main/data): Where the data is stored
+- [models](https://github.com/nahumsa/nyc-yellow-tripdata/tree/main/models): Where the following models are trained and evaludated:
+    - Linear Regression
+    - Random Forest
+- [notebooks](https://github.com/nahumsa/nyc-yellow-tripdata/tree/main/notebooks): Where exploratory notebooks are used before generating the modules
+- [scripts](https://github.com/nahumsa/nyc-yellow-tripdata/tree/main/scripts): Where there are scripts for the CI and initialization of MLFlow
+- [tests](https://github.com/nahumsa/nyc-yellow-tripdata/tree/main/tests): Where there are tests for other modules
+
 # Peer Review Criteria
 
 * Problem description
 
-    * [X] 0 points: Problem is not described
+    * [ ] 0 points: Problem is not described
 
-    * [ ] 1 point: Problem is described but shortly or not clearly 
+    * [X] 1 point: Problem is described but shortly or not clearly 
 
     * [ ] 2 points: Problem is well described and it's clear what the problem the project solves
 
