@@ -26,7 +26,7 @@ def pipeline_steps() -> Pipeline:
     return Pipeline(steps=steps)
 
 
-def process_model_data(df: pd.DataFrame, cat_columns: List[str]) -> np.array:
+def process_data(df: pd.DataFrame, cat_columns: List[str]) -> np.array:
     process_df = preprocess_data(df)
     return process_df, process_df[cat_columns].astype(str).to_dict(orient="records")
 
@@ -53,13 +53,13 @@ def train_and_valid(
     mlflow.autolog()
     pipe = pipeline_steps()
 
-    process_df_train, train_dicts = process_model_data(df_train, cat_columns=cat_columns)
+    process_df_train, train_dicts = process_data(df_train, cat_columns=cat_columns)
     features.extend(cat_columns)
 
     y = process_df_train[target].values
     pipe.fit(train_dicts, y)
 
-    process_df_valid, valid_dicts = process_model_data(df_valid, cat_columns=cat_columns)
+    process_df_valid, valid_dicts = process_data(df_valid, cat_columns=cat_columns)
     y_valid = process_df_valid[target].values
     valid_prediction = pipe.predict(valid_dicts)
 
