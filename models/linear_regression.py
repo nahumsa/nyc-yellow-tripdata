@@ -31,7 +31,9 @@ def pipeline_steps() -> Pipeline:
     return Pipeline(steps=steps)
 
 
-def process_data(df: pd.DataFrame, cat_columns: List[str]) -> Tuple[pd.DataFrame, np.array]:
+def process_data(
+    df: pd.DataFrame, cat_columns: List[str]
+) -> Tuple[pd.DataFrame, np.array]:
     """Process the data for the model using the `etl.preprocess_data` and generate the input
     for the DictVectorizer
 
