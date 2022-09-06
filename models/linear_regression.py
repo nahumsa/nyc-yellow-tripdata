@@ -105,9 +105,12 @@ def train_and_valid(
     valid_prediction = pipe.predict(valid_dicts)
 
     rmse, mae, r2 = eval_metrics(y_valid, valid_prediction)
+    autolog_run = mlflow.last_active_run()
 
-    mlflow.log_metric("valid_rmse", rmse)
-    mlflow.log_metric("valid_r2", r2)
-    mlflow.log_metric("valid_mae", mae)
+    # add metrics to the last run
+    with mlflow.start_run(run_id=autolog_run.info.run_id):
+        mlflow.log_metric("valid_rmse", rmse)
+        mlflow.log_metric("valid_r2", r2)
+        mlflow.log_metric("valid_mae", mae)
 
     return pipe, features
