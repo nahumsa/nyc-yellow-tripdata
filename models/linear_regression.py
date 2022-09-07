@@ -14,7 +14,7 @@ from etl.extract import load_data
 from etl.transform import preprocess_data
 
 mlflow.set_tracking_uri("http://127.0.0.1:5000")
-mlflow.set_experiment("linear-regression")
+mlflow.set_experiment("nyc-yellow-taxi")
 
 
 def pipeline_steps() -> Pipeline:
@@ -109,6 +109,7 @@ def train_and_valid(
 
     # add metrics to the last run
     with mlflow.start_run(run_id=autolog_run.info.run_id):
+        mlflow.log_param("model", "linear_regression")
         mlflow.log_metric("valid_rmse", rmse)
         mlflow.log_metric("valid_r2", r2)
         mlflow.log_metric("valid_mae", mae)

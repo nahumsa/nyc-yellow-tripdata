@@ -1,2 +1,2 @@
-black --check --diff etl tests models
-isort --check --diff --profile black etl tests models
+black --check --diff etl tests models register
+isort --check --diff --profile black etl tests models register

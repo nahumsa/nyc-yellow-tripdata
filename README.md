@@ -2,6 +2,10 @@
 
 In this project, the goal is to predict the time based on the yellow taxi pickup and dropoff location, and other additional features.
 
+# Problem statement
+
+It is common for us to know how much time a taxi trip will take.
+
 # How to run the code
 
 In order to run the code, you can use `Makefile`. To prepare the environment of the project you can run:
@@ -10,9 +14,23 @@ In order to run the code, you can use `Makefile`. To prepare the environment of 
 make setup
 ```
 
-This will install the dependencies using `pipenv`.
+This will install the dependencies using `pipenv` and the `pre-commit` hooks.
 
 ## Makefile
+
+Each section is one of the makefile commands.
+
+### start_mlflow
+
+This will start the local MLFLOW server on `http://127.0.0.1/` and port `5000`. This is neede to run the training scripts,
+
+### train_lr
+
+This will train the linear regression model on the first month of the 2022, validates on the next month, and logs to MLFLOW.
+
+### register_best_model
+
+This will register the best model to the registry on the `nyc-yellow-taxi` experiment on MLFLOW.
 
 ## Folder structure
 
@@ -23,6 +41,7 @@ In this project, there are the following folders:
 - [models](https://github.com/nahumsa/nyc-yellow-tripdata/tree/main/models): Where the following models are trained and evaludated:
     - Linear Regression
     - Random Forest
+- [register](https://github.com/nahumsa/nyc-yellow-tripdata/tree/main/register): Where the model is registered to the MLFLOW model registry
 - [notebooks](https://github.com/nahumsa/nyc-yellow-tripdata/tree/main/notebooks): Where exploratory notebooks are used before generating the modules
 - [scripts](https://github.com/nahumsa/nyc-yellow-tripdata/tree/main/scripts): Where there are scripts for the CI and initialization of MLFlow
 - [tests](https://github.com/nahumsa/nyc-yellow-tripdata/tree/main/tests): Where there are tests for other modules
@@ -49,9 +68,9 @@ In this project, there are the following folders:
 
     * [ ] 0 points: No experiment tracking or model registry
 
-    * [X] 2 points: Experiments are tracked or models are registred in the registry
+    * [ ] 2 points: Experiments are tracked or models are registred in the registry
 
-    * [ ] 4 points: Both experiment tracking and model registry are used
+    * [X] 4 points: Both experiment tracking and model registry are used
 
 * Workflow orchestration
 
@@ -79,22 +98,22 @@ In this project, there are the following folders:
 
 * Reproducibility
 
-    * [X] 0 points: No instructions how to run code at all
+    * [ ] 0 points: No instructions how to run code at all
 
-    * [ ] 2 points: Some instructions are there, but they are not complete
+    * [X] 2 points: Some instructions are there, but they are not complete
 
     * [ ] 4 points: Instructions are clear, it's easy to run the code, and the code works. The version for all the dependencies are specified.
 
 * Best practices
 
-    * [ ] There are unit tests (1 point)
+    * [X] There are unit tests (1 point)
 
     * [ ] There is an integration test (1 point)
 
     * [X] Linter and/or code formatter are used (1 point)
 
-    * [ ] There's a Makefile (1 point)
+    * [X] There's a Makefile (1 point)
 
-    * [ ] There are pre-commit hooks (1 point)
+    * [X] There are pre-commit hooks (1 point)
 
     * [X] There's a CI/CD pipeline (2 points)
