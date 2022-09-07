@@ -4,6 +4,16 @@ In this project, the goal is to predict the time based on the yellow taxi pickup
 
 # How to run the code
 
+In order to run the code, you can use `Makefile`. To prepare the environment of the project you can run:
+
+```
+make setup
+```
+
+This will install the dependencies using `pipenv`.
+
+## Makefile
+
 ## Folder structure
 
 In this project, there are the following folders:
@@ -23,7 +33,7 @@ In this project, there are the following folders:
 
     * [ ] 0 points: Problem is not described
 
-    * [X] 1 point: Problem is described but shortly or not clearly 
+    * [X] 1 point: Problem is described but shortly or not clearly
 
     * [ ] 2 points: Problem is well described and it's clear what the problem the project solves
 
@@ -49,7 +59,7 @@ In this project, there are the following folders:
 
     * [ ] 2 points: Basic workflow orchestration
 
-    * [ ] 4 points: Fully deployed workflow 
+    * [ ] 4 points: Fully deployed workflow
 
 * Model deployment
 
@@ -88,4 +98,3 @@ In this project, there are the following folders:
     * [ ] There are pre-commit hooks (1 point)
 
     * [X] There's a CI/CD pipeline (2 points)
-
