@@ -110,6 +110,7 @@ def train_and_valid(
     # add metrics to the last run
     with mlflow.start_run(run_id=autolog_run.info.run_id):
         mlflow.log_param("model", "linear_regression")
+        mlflow.log_param("features", f"{','.join(features)}")
         mlflow.log_metric("valid_rmse", rmse)
         mlflow.log_metric("valid_r2", r2)
         mlflow.log_metric("valid_mae", mae)

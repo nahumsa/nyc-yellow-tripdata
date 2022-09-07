@@ -100,9 +100,9 @@ In this project, there are the following folders:
 
     * [ ] 0 points: No instructions how to run code at all
 
-    * [X] 2 points: Some instructions are there, but they are not complete
+    * [ ] 2 points: Some instructions are there, but they are not complete
 
-    * [ ] 4 points: Instructions are clear, it's easy to run the code, and the code works. The version for all the dependencies are specified.
+    * [X] 4 points: Instructions are clear, it's easy to run the code, and the code works. The version for all the dependencies are specified.
 
 * Best practices
 

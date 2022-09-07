@@ -19,6 +19,5 @@ def get_model(
         PyFuncModel: Mlflow model that has `.predict` method
     """
     model = client.get_latest_versions(model_name, stages=[model_stage])[0]
-    model_uri = model.source
 
-    return mlflow.pyfunc.load_model(model_uri)
+    return mlflow.pyfunc.load_model(f"runs:/{model.run_id}/model")
