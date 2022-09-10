@@ -1,6 +1,11 @@
-# Predicting the time for the NYC yellow taxi trip
+<h1 align="center">Predicting the time for the NYC yellow taxi trip</h1>
+<p align="center">
+<a href="https://github.com/nahumsa/nyc-yellow-tripdata/actions"><img alt="Actions Status" src="https://github.com/nahumsa/nyc-yellow-tripdata/workflows/nyc-yello-taxi/badge.svg"></a>
+<a href="https://github.com/psf/black"><img alt="Code style: black" src="https://img.shields.io/badge/code%20style-black-000000.svg"></a>
+<a href="https://pycqa.github.io/isort/"><img alt="Imports: isort" src="https://img.shields.io/badge/%20imports-isort-%231674b1?style=flat&labelColor=ef8336"></a>
+</p>
 
-In this project, the goal is to predict the time based on the yellow taxi pickup and dropoff location, and other additional features.
+In this project, the goal is to predict the time based on the yellow taxi pickup and dropoff location, and other additional features. The main goal of the project is to develop MLOps skills, that is: Use experiment tracking, workflow orchestration, model registry, deployment, and tracking. Another plus is to use unit tests, integration tests, CI/CD.
 
 # Problem statement
 
