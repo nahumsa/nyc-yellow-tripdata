@@ -13,7 +13,7 @@ Humans are always concerned with time most of the time, mainly when we're commut
 
 # How to run the code
 
-In order to run the code, you can use `Makefile`. To prepare the environment of the project you can run:
+In order to run the code, you first need to install [`pipenv`](https://pipenv.pypa.io/en/latest/), then you can use `Makefile`. To prepare the environment of the project you can run:
 
 ```
 make setup
@@ -57,9 +57,9 @@ In this project, there are the following folders:
 
     * [ ] 0 points: Problem is not described
 
-    * [X] 1 point: Problem is described but shortly or not clearly
+    * [ ] 1 point: Problem is described but shortly or not clearly
 
-    * [ ] 2 points: Problem is well described and it's clear what the problem the project solves
+    * [X] 2 points: Problem is well described and it's clear what the problem the project solves
 
 * Cloud
 
