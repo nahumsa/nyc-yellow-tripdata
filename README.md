@@ -4,7 +4,7 @@ In this project, the goal is to predict the time based on the yellow taxi pickup
 
 # Problem statement
 
-It is common for us to know how much time a taxi trip will take.
+Humans are always concerned with time most of the time, mainly when we're commuting. It is common to take taxis when commuting, or simply going somewhere and, as stated before, we want to know how log this trip will take. In this project, I will use the data provided by [NYC Yellow Taxi Trip Records](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page) to generate a model for predicting the duration of the trip given the pickup and dropoff location.
 
 # How to run the code
 
