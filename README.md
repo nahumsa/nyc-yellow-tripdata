@@ -5,7 +5,7 @@
 <a href="https://pycqa.github.io/isort/"><img alt="Imports: isort" src="https://img.shields.io/badge/%20imports-isort-%231674b1?style=flat&labelColor=ef8336"></a>
 </p>
 
-In this project, the goal is to predict the time based on the yellow taxi pickup and dropoff location, and other additional features. The main goal of the project is to develop MLOps skills, that is: Use experiment tracking, workflow orchestration, model registry, and deployment. Another plus is to use unit tests, integration tests, CI/CD.
+The main goal of the project is to develop MLOps skills, that is: Use experiment tracking, workflow orchestration, model registry, and deployment. Another plus is to use unit tests, integration tests, CI/CD. This will be demonstrated by creating and searving a model to predict the time based on the yellow taxi pickup and dropoff location, and other additional features.
 
 # Problem statement
 
