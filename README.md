@@ -35,7 +35,64 @@ This will train the linear regression model on the first month of the 2022, vali
 
 ### register_best_model
 
-This will register the best model to the registry on the `nyc-yellow-taxi` experiment on MLFLOW.
+This will register the best model to the registry on the `nyc-yellow-taxi` on MLFLOW on `model_stage=None`.
+
+### run_deployed_locally
+
+This will start the flask server locally on port `8000`, the flask server has an endpoint `/predict` which receives a JSON with `PULocationID` and `DOLocationID`. You will need to run the `start_mlflow` in order to have model available for the endpoint, also you need to have to train and register a model by running `train_lr` and `register_best_model`.
+
+### test_local_deploy
+
+In order to run this command you have to do two things:
+ - Run the `run_deployed_locally` command to spin up the local prediction endpoint.
+ - Run the `start_mlflow` in order to have load the model available.
+
+
+## Sample workflow for running this project
+
+First, install pipenv
+
+```
+pip install pipenv
+```
+
+Then setup the local environment installing the dependencies and the pre-commit hooks
+```
+make setup
+```
+
+Start the mlflow server (now on, this needs to be in a seperated terminal):
+
+```
+make start_mlflow
+```
+
+Train the linear regression model:
+
+```
+make train_lr
+```
+
+Register the linear regression model (this works for the model with the best validation mean absolute error):
+```
+make register_best_model
+```
+
+This will register the model to the `stage=None` on the model registry.
+
+Create the local deployment by starting the flask server:
+
+```
+make run_deployed_locally
+```
+
+In another terminal, you can test the local deployment:
+
+```
+make test_local_deploy
+```
+
+This should return a JSON just like this : `{'duration': 685.0228426897559, 'model_name': 'nyc-yellow-trip', 'model_version': '2'}`
 
 ## Folder structure
 
@@ -51,7 +108,7 @@ In this project, there are the following folders:
 - [scripts](https://github.com/nahumsa/nyc-yellow-tripdata/tree/main/scripts): Where there are scripts for the CI and initialization of MLFlow
 - [tests](https://github.com/nahumsa/nyc-yellow-tripdata/tree/main/tests): Where there are tests for other modules
 
-# Peer Review Criteria
+# MLOps Zoomcamp: Peer Review Criteria
 
 * Problem description
 

@@ -11,6 +11,7 @@ matplotlib = "*"
 isort = "*"
 seaborn = "*"
 mlflow = "*"
+flask = "*"
 
 [dev-packages]
 ipykernel = "*"

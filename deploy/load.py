@@ -20,4 +20,4 @@ def get_model(
     """
     model = client.get_latest_versions(model_name, stages=[model_stage])[0]
 
-    return mlflow.pyfunc.load_model(f"runs:/{model.run_id}/model")
+    return mlflow.pyfunc.load_model(f"runs:/{model.run_id}/model"), model
