@@ -113,6 +113,7 @@ An improvement will be to use [`localstack`](https://github.com/localstack/local
 In this project, there are the following folders:
 
 - [etl](https://github.com/nahumsa/nyc-yellow-tripdata/tree/main/etl): Which is responsible for data preprocessing and loading.
+- [deploy](https://github.com/nahumsa/nyc-yellow-tripdata/tree/main/deploy): The script for the flask application that uses the model to make predictions
 - [data](https://github.com/nahumsa/nyc-yellow-tripdata/tree/main/data): Where the data is stored
 - [models](https://github.com/nahumsa/nyc-yellow-tripdata/tree/main/models): Where the following models are trained and evaludated:
     - Linear Regression
