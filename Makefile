@@ -24,6 +24,6 @@ run_deployed_locally: fmt tests
 	export FLASK_APP=deploy/app.py
 	pipenv run flask run --port 8000
 
-test_local_deploy: fmt tests
+test_deploy: fmt tests
 	echo "Testing deployed model"
 	pipenv run python deploy/test.py

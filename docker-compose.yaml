@@ -1,0 +1,10 @@
+version: '3.7'
+services:
+  endpoint:
+      container_name: 'prediction-endpoint'
+      build:
+        context: .
+        dockerfile: Dockerfile.deploy
+      network_mode: host
+      ports:
+        - '8000:8000'

@@ -41,7 +41,7 @@ This will register the best model to the registry on the `nyc-yellow-taxi` on ML
 
 This will start the flask server locally on port `8000`, the flask server has an endpoint `/predict` which receives a JSON with `PULocationID` and `DOLocationID`. You will need to run the `start_mlflow` in order to have model available for the endpoint, also you need to have to train and register a model by running `train_lr` and `register_best_model`.
 
-### test_local_deploy
+### test_deploy
 
 In order to run this command you have to do two things:
  - Run the `run_deployed_locally` command to spin up the local prediction endpoint.
@@ -86,13 +86,27 @@ Create the local deployment by starting the flask server:
 make run_deployed_locally
 ```
 
+Alternatively, you can run the docker-compose command:
+
+```
+docker-compose up -d --build
+```
+This will start the flask server on port `8000`.
+
 In another terminal, you can test the local deployment:
 
 ```
-make test_local_deploy
+make test_deploy
 ```
 
 This should return a JSON just like this : `{'duration': 685.0228426897559, 'model_name': 'nyc-yellow-trip', 'model_version': '2'}`
+
+
+## Caveat for the Dockerfile
+
+In the deployment Dockerfile, I import the `artifacts` folder created from MLFLOW, this is done because I need it to load the model inside the docker container. This could be easily avoided by using a s3 bucket as the artifact store, however, sadly, I do not have the resources to use any cloud infraestructure.
+
+An improvement will be to use [`localstack`](https://github.com/localstack/localstack) to mock the s3 bucket that keeps the artifacts for MLFLOW.
 
 ## Folder structure
 
@@ -144,11 +158,11 @@ In this project, there are the following folders:
 
 * Model deployment
 
-    * [X] 0 points: Model is not deployed
+    * [ ] 0 points: Model is not deployed
 
     * [ ] 2 points: Model is deployed but only locally
 
-    * [ ] 4 points: The model deployment code is containerized and could be deployed to cloud or special tools for model deployment are used
+    * [X] 4 points: The model deployment code is containerized and could be deployed to cloud or special tools for model deployment are used
 
 * Model monitoring
 
