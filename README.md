@@ -47,6 +47,17 @@ In order to run this command you have to do two things:
  - Run the `run_deployed_locally` command to spin up the local prediction endpoint.
  - Run the `start_mlflow` in order to have load the model available.
 
+### prefect_start
+
+This will start prefect orion on port `4200`.
+
+### prefect_deploy
+
+This will deploy the prefect flow for training the logistic regression model.
+
+### prefect_run
+
+This will run the prefect flow for training the logistic regression.
 
 ## Sample workflow for running this project
 
@@ -120,6 +131,7 @@ In this project, there are the following folders:
     - Random Forest
 - [register](https://github.com/nahumsa/nyc-yellow-tripdata/tree/main/register): Where the model is registered to the MLFLOW model registry
 - [notebooks](https://github.com/nahumsa/nyc-yellow-tripdata/tree/main/notebooks): Where exploratory notebooks are used before generating the modules
+- [orchestration/prefect](https://github.com/nahumsa/nyc-yellow-tripdata/tree/main/orchestration/prefect): In this folder, there is the prefect orchestration to train the logistic regression model. This also has the deployment for the training logistic regression prefect flow.
 - [scripts](https://github.com/nahumsa/nyc-yellow-tripdata/tree/main/scripts): Where there are scripts for the CI and initialization of MLFlow
 - [tests](https://github.com/nahumsa/nyc-yellow-tripdata/tree/main/tests): Where there are tests for other modules
 
@@ -151,11 +163,11 @@ In this project, there are the following folders:
 
 * Workflow orchestration
 
-    * [X] 0 points: No workflow orchestration
+    * [ ] 0 points: No workflow orchestration
 
     * [ ] 2 points: Basic workflow orchestration
 
-    * [ ] 4 points: Fully deployed workflow
+    * [X] 4 points: Fully deployed workflow
 
 * Model deployment
 

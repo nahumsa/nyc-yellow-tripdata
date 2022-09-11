@@ -12,6 +12,7 @@ isort = "*"
 seaborn = "*"
 mlflow = "*"
 flask = "*"
+prefect = "==2.0b5"
 
 [dev-packages]
 ipykernel = "*"

@@ -27,3 +27,12 @@ run_deployed_locally: fmt tests
 test_deploy: fmt tests
 	echo "Testing deployed model"
 	pipenv run python deploy/test.py
+
+prefect_start: fmt tests
+	pipenv run prefect orion start
+
+prefect_deploy: fmt tests
+	pipenv run prefect deployment create orchestration/prefect/train_lr.py
+
+prefect_run: fmt tests
+	pipenv run python -m orchestration.prefect

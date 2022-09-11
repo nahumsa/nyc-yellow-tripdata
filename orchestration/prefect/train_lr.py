@@ -1,12 +1,16 @@
+import sys
 from typing import List, Tuple
 
 import mlflow
 import numpy as np
 import pandas as pd
+from prefect import flow, task
 from sklearn.feature_extraction import DictVectorizer
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
 from sklearn.pipeline import Pipeline
+
+sys.path.append("../../")
 
 from etl.extract import load_data
 from etl.transform import preprocess_data
@@ -47,6 +51,7 @@ def process_data(
     return process_df, process_df[cat_columns].astype(str).to_dict(orient="records")
 
 
+@task
 def eval_metrics(actual: List[float], pred: List[float]) -> Tuple[float, float, float]:
     """Calculate evaluation metrics: rmse, mae, r2.
 
@@ -65,7 +70,8 @@ def eval_metrics(actual: List[float], pred: List[float]) -> Tuple[float, float, 
     return rmse, mae, r2
 
 
-def train_and_valid(
+@flow
+def train_and_valid_lr(
     year: int,
     month: int,
     cat_columns: List[str] = ["PULocationID", "DOLocationID"],
@@ -102,7 +108,7 @@ def train_and_valid(
     y_valid = process_df_valid[target].values
     valid_prediction = pipe.predict(valid_dicts)
 
-    rmse, mae, r2 = eval_metrics(y_valid, valid_prediction)
+    rmse, mae, r2 = eval_metrics(y_valid, valid_prediction).result()
     autolog_run = mlflow.last_active_run()
 
     # add metrics to the last run
@@ -114,3 +120,17 @@ def train_and_valid(
         mlflow.log_metric("valid_mae", mae)
 
     return pipe, features
+
+
+from prefect.deployments import DeploymentSpec
+from prefect.flow_runners import SubprocessFlowRunner
+from prefect.orion.schemas.schedules import CronSchedule
+
+DeploymentSpec(
+    flow=train_and_valid_lr,
+    parameters={"year": 2022, "month": 1},
+    name="nyc-yellow-taxi",
+    schedule=CronSchedule(cron="0 0 1 * *"),
+    flow_runner=SubprocessFlowRunner(),
+    tags=["ml"],
+)

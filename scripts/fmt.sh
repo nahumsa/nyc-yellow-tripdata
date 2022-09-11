@@ -1,2 +1,2 @@
-black etl tests models register deploy
-isort --profile black etl tests models register deploy
+black etl tests models register deploy orchestration
+isort --profile black etl tests models register deploy orchestration
