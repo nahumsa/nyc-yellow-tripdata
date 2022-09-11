@@ -13,6 +13,7 @@ seaborn = "*"
 mlflow = "*"
 flask = "*"
 prefect = "==2.0b5"
+python-dotenv = "*"
 
 [dev-packages]
 ipykernel = "*"
